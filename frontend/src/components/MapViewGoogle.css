@@ -1,0 +1,262 @@
+.map-view-google {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-message h2 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.error-message code {
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+/* Map Controls */
+.map-controls-google {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-btn {
+  padding: 0.75rem 1rem;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.control-btn.active {
+  background: #3498db;
+  color: white;
+}
+
+.map-style-selector {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.map-style-selector h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.style-btn {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-align: left;
+  transition: all 0.3s;
+}
+
+.style-btn:hover {
+  background: #f8f9fa;
+}
+
+.style-btn.active {
+  background: #3498db;
+  color: white;
+}
+
+/* Vehicle Sidebar */
+.vehicle-info-google {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  width: 300px;
+  max-height: calc(100% - 40px);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.connection-status {
+  font-size: 1.5rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.vehicle-list-google {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.vehicle-item-google {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.vehicle-item-google:hover {
+  background: #f8f9fa;
+}
+
+.vehicle-item-google.active {
+  background: #e3f2fd;
+  border-left: 4px solid #3498db;
+}
+
+.vehicle-icon {
+  font-size: 1.8rem;
+}
+
+.vehicle-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.vehicle-details strong {
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.vehicle-details small {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+}
+
+.vehicle-speed {
+  color: #3498db;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.no-vehicles {
+  padding: 2rem;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+/* Info Window */
+.info-window {
+  padding: 0.5rem;
+  min-width: 200px;
+}
+
+.info-window h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.info-window p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.info-window .timestamp {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #999;
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vehicle-info-google {
+    width: calc(100% - 40px);
+    max-height: 40%;
+    top: auto;
+    bottom: 20px;
+  }
+  
+  .map-controls-google {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
